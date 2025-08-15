@@ -38,43 +38,78 @@ git clone https://github.com/yourusername/morphik-multi-agent-research
 cd morphik-multi-agent-research
 pip install -r requirements.txt
 ```
+
 ### Environment Setup
-bash# Required: Your Morphik URI
+
+```bash
+# Required: Your Morphik URI
 export MORPHIK_URI="morphik://owner_id:token@api.morphik.ai"
 
 # Optional: OpenAI key for enhanced product opportunity generation
 export OPENAI_API_KEY="your_openai_key"
-Run the System
-bashpython morphik_multiagent.py
-Open your browser to http://localhost:5001 and start analyzing research papers.
-How It Works
-1. Document Ingestion
-python# Morphik processes the PDF with visual understanding
+```
+
+### Run the System
+
+```bash
+python morphik_multiagent.py
+```
+
+Open your browser to `http://localhost:5001` and start analyzing research papers.
+
+## How It Works
+
+### 1. Document Ingestion
+
+```python
+# Morphik processes the PDF with visual understanding
 document = morphik.ingest_file(pdf_path, use_colpali=True)
-2. Multi-Agent Analysis
+```
+
+### 2. Multi-Agent Analysis
+
 Each agent analyzes the document from their specialized perspective:
-python# Content-based search - no complex filtering needed
+
+```python
+# Content-based search - no complex filtering needed
 response = morphik.query(
     query=agent_specific_query,
     use_colpali=True,
     k=5
 )
-3. Collaborative Synthesis
+```
+
+### 3. Collaborative Synthesis
+
 Agents' insights are combined into a comprehensive analysis and concrete product opportunities.
-4. Automatic Cleanup
+
+### 4. Automatic Cleanup
+
 Document is automatically deleted after analysis for privacy and storage efficiency.
-Web Interface
+
+## Web Interface
+
 Beautiful, intuitive interface featuring:
 
-Drag & drop PDF upload
-Real-time progress tracking
-Agent-by-agent analysis display
-Interactive product opportunity cards
-One-click document querying
+- Drag & drop PDF upload
+- Real-time progress tracking
+- Agent-by-agent analysis display
+- Interactive product opportunity cards
+- One-click document querying
 
-API Endpoints
-EndpointMethodDescription/ingestPOSTUpload and process research paper/analyzePOSTRun multi-agent analysis with auto-cleanup/queryPOSTQuery document content/agentsGETList available agents/healthGETSystem health check
-Architecture
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/ingest` | POST | Upload and process research paper |
+| `/analyze` | POST | Run multi-agent analysis with auto-cleanup |
+| `/query` | POST | Query document content |
+| `/agents` | GET | List available agents |
+| `/health` | GET | System health check |
+
+## Architecture
+
+```
 PDF Upload
     ↓
 Morphik Ingestion (ColPali)
@@ -91,47 +126,69 @@ Collaborative Synthesis
 Product Opportunities
     ↓
 Auto-Cleanup
-Example Output
+```
+
+## Example Output
+
 The system generates detailed product opportunities including:
 
-Market Size Estimates - "$2.5B addressable market"
-Technical Requirements - Specific implementation needs
-Target Users - Clearly defined user segments
-Revenue Models - Subscription, licensing, or service-based
-Supporting Evidence - Citations from the research
-Agent Consensus - Perspectives from each specialist
+- **Market Size Estimates** - "$2.5B addressable market"
+- **Technical Requirements** - Specific implementation needs
+- **Target Users** - Clearly defined user segments
+- **Revenue Models** - Subscription, licensing, or service-based
+- **Supporting Evidence** - Citations from the research
+- **Agent Consensus** - Perspectives from each specialist
 
-Advanced Configuration
-Custom Agent Queries
-python# Override default agent behavior
+## Advanced Configuration
+
+### Custom Agent Queries
+
+```python
+# Override default agent behavior
 insight = team.analyze_with_agent(
     "technical_lead", 
     custom_query="Focus on blockchain implementation challenges"
 )
-Manual Cleanup Control
-python# Disable auto-cleanup for debugging
+```
+
+### Manual Cleanup Control
+
+```python
+# Disable auto-cleanup for debugging
 results = team.run_collaborative_analysis(auto_cleanup=False)
 
 # Manual cleanup when ready
 team.cleanup_document()
-Contributing
+```
+
+## Contributing
+
 We welcome contributions! Please see our Contributing Guide for details.
 
-Fork the repository
-Create a feature branch (git checkout -b feature/amazing-feature)
-Commit your changes (git commit -m 'Add amazing feature')
-Push to the branch (git push origin feature/amazing-feature)
-Open a Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
-Acknowledgments
 
-Morphik for their incredible visual document understanding platform
-OpenAI for GPT-4 integration in product opportunity generation
-Flask for the lightweight web framework
+## Acknowledgments
 
+- Morphik for their incredible visual document understanding platform
+- OpenAI for GPT-4 integration in product opportunity generation
+- Flask for the lightweight web framework
 
-Built for researchers, innovators, and product teams worldwide
-Transform any research paper into your next breakthrough product
-RetryClaude can make mistakes. Please double-check responses.
+## Links
+
+- [Morphik Platform](https://morphik.ai)
+- [Documentation](https://docs.morphik.ai)
+- [Example Analysis Results](#)
+- [Video Demo](#)
+
+---
+
+**Built for researchers, innovators, and product teams worldwide**  
+*Transform any research paper into your next breakthrough product*
