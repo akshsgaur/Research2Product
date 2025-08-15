@@ -185,10 +185,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Morphik Platform](https://morphik.ai)
 - [Documentation](https://docs.morphik.ai)
-- [Example Analysis Results](#)
-- [Video Demo](#)
+- [Video Demo](https://www.linkedin.com/feed/update/urn:li:activity:7355408012489965568/)
 
 ---
 
 **Built for researchers, innovators, and product teams worldwide**  
 *Transform any research paper into your next breakthrough product*
+
